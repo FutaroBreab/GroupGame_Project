@@ -29,6 +29,7 @@ public class PlayerScript : MonoBehaviour
 
     void Start()
     {
+        GetComponent<EndScreen>().SwitchScene(0);
         respawnPoint = transform.position;
         rigidbody = GetComponent<Rigidbody>();
     }
@@ -105,7 +106,7 @@ public class PlayerScript : MonoBehaviour
 
         if (playerHealth <= 0)
         {
-          
+            GetComponent<EndScreen>().SwitchScene(2);
             //game over
         }
         else
@@ -118,10 +119,7 @@ public class PlayerScript : MonoBehaviour
 
 
     //Helps switch scenes either from startup to main to end screen
-    public void SwitchScene(int sceneIndex)
-    {
-        SceneManager.LoadScene(sceneIndex);
-    }
+
 
     private void OnTriggerEnter(Collider other)
     {
