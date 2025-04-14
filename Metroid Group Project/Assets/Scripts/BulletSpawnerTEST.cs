@@ -7,7 +7,11 @@ public class BulletSpawnerTEST : MonoBehaviour
     //Set these bullet types to a bullet prefab
     public GameObject bullet;
     public GameObject heavyBullet;
-    
+
+    public int bulletType = 0;
+    //BulletType Index:
+    //0 = Regular Bullet
+    //1 = Heavy Bullet
 
 
 
@@ -35,18 +39,16 @@ public class BulletSpawnerTEST : MonoBehaviour
     }
 
     //Spawns a bullet
-    void SpawnBullet(int BulletType)
+    void SpawnBullet()
     {
         
-        //BulletType Index:
-        //0 = Regular Bullet
-        //1 = Heavy Bullet
+       
 
-        if (BulletType == 0)
+        if (bulletType == 0)
         {
             Instantiate(bullet, transform.position, transform.rotation);
         }
-        else if (BulletType == 1)
+        else if (bulletType == 1)
         {
             Instantiate(heavyBullet, transform.position, transform.rotation);
         }
