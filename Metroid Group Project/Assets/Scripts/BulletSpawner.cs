@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletSpawnerTEST : MonoBehaviour
+public class BulletSpawner : MonoBehaviour
 {
     //Set these bullet types to a bullet prefab
     public GameObject bullet;
     public GameObject heavyBullet;
 
+    //To check player direction for bullet direction
+    public GameObject player;
+  
     public int bulletType = 0;
     //BulletType Index:
     //0 = Regular Bullet
@@ -24,11 +27,15 @@ public class BulletSpawnerTEST : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+     
+        
+
 
         //If X is held, shoot once, and then start to rapid fire after held
         if(Input.GetKeyDown(KeyCode.X))
         {
-            Instantiate(bullet, transform.position, transform.rotation);
+            GameObject bulletspawn = Instantiate(bullet, transform.position, transform.rotation);
+            bulletspawn.GetComponent<BulletScript>().direction = player.GetComponent<PlayerScript>().direction;
             InvokeRepeating("SpawnBullet", 0.5f, 0.15f);
         }
         if(!Input.GetKey(KeyCode.X))
@@ -41,17 +48,18 @@ public class BulletSpawnerTEST : MonoBehaviour
     //Spawns a bullet
     void SpawnBullet()
     {
-        
-       
+
+
 
         if (bulletType == 0)
         {
-            Instantiate(bullet, transform.position, transform.rotation);
+            GameObject bulletspawn = Instantiate(bullet, transform.position, transform.rotation);
+            bulletspawn.GetComponent<BulletScript>().direction = player.GetComponent<PlayerScript>().direction;
         }
         else if (bulletType == 1)
         {
-            Instantiate(heavyBullet, transform.position, transform.rotation);
+            GameObject bulletspawn = Instantiate(heavyBullet, transform.position, transform.rotation);
+            bulletspawn.GetComponent<BulletScript>().direction = player.GetComponent<PlayerScript>().direction;
         }
     }
-
 }

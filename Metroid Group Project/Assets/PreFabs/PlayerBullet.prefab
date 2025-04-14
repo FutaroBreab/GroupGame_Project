@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3048455967838625534}
   m_Layer: 0
   m_Name: PlayerBullet
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -53,8 +53,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.7454972, y: 0.7275748, z: 1}
+  m_Center: {x: 0.016130447, y: 0.0358454, z: 0}
 --- !u!212 &5600225447609701047
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -119,4 +119,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fc7eaeae24852240b28a1b324160d9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 15
+  speed: 20
+  direction: 0
