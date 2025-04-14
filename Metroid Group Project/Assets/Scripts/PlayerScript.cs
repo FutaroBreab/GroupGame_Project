@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
@@ -15,6 +16,13 @@ public class PlayerScript : MonoBehaviour
 
     //The max playerhealth  
     public int playerHealth = 99;
+
+    //The players points
+    public int points = 0;
+
+    //Bullet direction variable dependencies 
+    public int direction = 0;
+
 
     private Vector3 respawnPoint;
 
@@ -51,6 +59,8 @@ public class PlayerScript : MonoBehaviour
             //transform.position += Vector3.left * speed * Time.deltaTime;
             rigidbody.MovePosition(transform.position + (Vector3.left * speed * Time.deltaTime));
             transform.rotation = Quaternion.Euler(0, 180, 0);
+            //variables relevant to the bullet trajectory 
+            direction = 0;
         }
 
         if (Input.GetKey(KeyCode.D))
@@ -58,6 +68,8 @@ public class PlayerScript : MonoBehaviour
             //transform.position += Vector3.right * speed * Time.deltaTime;
             rigidbody.MovePosition(transform.position + (Vector3.right * speed * Time.deltaTime));
             transform.rotation = Quaternion.Euler(0, 0, 0);
+            //variables relevant to the bullet trajectory 
+            direction = 1;
         }
     }
     
@@ -100,5 +112,9 @@ public class PlayerScript : MonoBehaviour
             //respawn
             transform.position = respawnPoint;
         }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        
     }
 }
