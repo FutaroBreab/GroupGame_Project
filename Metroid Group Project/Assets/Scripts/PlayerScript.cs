@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using JetBrains.Annotations;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -104,6 +105,7 @@ public class PlayerScript : MonoBehaviour
 
         if (playerHealth <= 0)
         {
+          
             //game over
         }
         else
@@ -113,6 +115,14 @@ public class PlayerScript : MonoBehaviour
             transform.position = respawnPoint;
         }
     }
+
+
+    //Helps switch scenes either from startup to main to end screen
+    public void SwitchScene(int sceneIndex)
+    {
+        SceneManager.LoadScene(sceneIndex);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         
