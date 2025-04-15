@@ -118,11 +118,20 @@ public class PlayerScript : MonoBehaviour
     }
 
 
-    //Helps switch scenes either from startup to main to end screen
 
 
     private void OnTriggerEnter(Collider other)
     {
-        
+        if (other.gameObject.GetComponent<LightEnemyScript>())
+        {
+            //call the script below
+        }
     }
+
+    private void InvincibilityFrames()
+    {
+           //visually make the player fade in and out of transparency or just visibility 
+           //while making it so that they dont take damage for the duration of this time 
+    }
+    
 }
