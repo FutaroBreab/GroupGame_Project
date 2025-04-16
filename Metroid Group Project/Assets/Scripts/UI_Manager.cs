@@ -4,7 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-
+/*
+ * Connor Edgar
+ * 4/16/2025
+ * Handles player health UI
+*/
 public class UI_Manager : MonoBehaviour
 {
     public PlayerScript playerScript;

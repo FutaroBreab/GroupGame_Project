@@ -2,6 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Connor Edgar
+ * 4/16/2025
+ * Responsible for handling Powerups
+ * 
+*/
 public class PowerUpScript : MonoBehaviour
 {
     public PlayerScript playerScript;
