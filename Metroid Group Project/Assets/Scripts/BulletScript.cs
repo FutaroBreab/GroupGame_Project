@@ -34,15 +34,23 @@ public class BulletScript : MonoBehaviour
 
 
     //BULLET COLLISIONS YEAAA COLLISIONS
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)    
     {
 
-        if (other.gameObject.GetComponent<Door>())
+        if (collision.gameObject.GetComponent<Door>())
         {
-        
-        other.gameObject.GetComponent<Door>().HitByBullet();
+
+            collision.gameObject.GetComponent<Door>().HitByBullet();
         Destroy(gameObject);
 
         }
+
+
+        if (!collision.gameObject.GetComponent<PlayerScript>())
+        {
+            Destroy(gameObject);
+        }
+
+
     }
 }
