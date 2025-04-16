@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class PlayerScript : MonoBehaviour
 {
     //Establish a rigidbody for the player model (This will hopefully contribute to fixing clipping issue
-    private Rigidbody rigidbody;
+    public Rigidbody rb;
 
     //The speed of the player model which can be adjusted in the 
     public int speed = 10;
@@ -35,9 +35,10 @@ public class PlayerScript : MonoBehaviour
 
     void Start()
     {
+        rb = GetComponent<Rigidbody>();
         GetComponent<EndScreen>().SwitchScene(0);
         respawnPoint = transform.position;
-        rigidbody = GetComponent<Rigidbody>();
+        
     }
 
 
@@ -71,7 +72,7 @@ public class PlayerScript : MonoBehaviour
         if (Input.GetKey(KeyCode.A))
         {
             //transform.position += Vector3.left * speed * Time.deltaTime;
-            rigidbody.MovePosition(transform.position + (Vector3.left * speed * Time.deltaTime));
+            rb.MovePosition(transform.position + (Vector3.left * speed * Time.deltaTime));
             transform.rotation = Quaternion.Euler(0, 180, 0);
             //variables relevant to the bullet trajectory 
             direction = 0;
@@ -80,7 +81,7 @@ public class PlayerScript : MonoBehaviour
         if (Input.GetKey(KeyCode.D))
         {
             //transform.position += Vector3.right * speed * Time.deltaTime;
-            rigidbody.MovePosition(transform.position + (Vector3.right * speed * Time.deltaTime));
+            rb.MovePosition(transform.position + (Vector3.right * speed * Time.deltaTime));
             transform.rotation = Quaternion.Euler(0, 0, 0);
             //variables relevant to the bullet trajectory 
             direction = 1;
@@ -107,7 +108,7 @@ public class PlayerScript : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && OnGround())
         {
-            rigidbody.AddForce(Vector3.up * jumpStrength, ForceMode.Impulse);
+            rb.AddForce(Vector3.up * jumpStrength, ForceMode.Impulse);
         }
     }
     // Update is called once per frame
