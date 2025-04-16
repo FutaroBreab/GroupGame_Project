@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class HeavyEnemy : MonoBehaviour
 {
+    public int health = 10;
     public float speed = 1f;
     public Vector3 direction;
     public Transform leftPoint;
@@ -24,7 +25,14 @@ public class HeavyEnemy : MonoBehaviour
     void Update()
     {
         EnemyMovement();
+
+        // This should be Checking constantly if the enemy has any health
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
+
 
     private void EnemyMovement()
     {

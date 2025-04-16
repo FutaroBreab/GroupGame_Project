@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class LightEnemyScript : MonoBehaviour
 {
+    public int health = 1;
     public float speed = 1f;
     public Vector3 direction;
     public Transform leftPoint;
@@ -24,7 +25,14 @@ public class LightEnemyScript : MonoBehaviour
     void Update()
     {
         EnemyMovement();
+
+        //checks if the health ever reaches zero to then die
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
+    //this should subtract the bullet damage from the enemies health
 
     private void EnemyMovement()
     {
