@@ -4,15 +4,29 @@ using UnityEngine;
 
 public class PowerUpScript : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public PlayerScript playerScript;
+    public int xHealth;
+    public int xJump;
+    private int MaxHealth;
+
+    private void Start()
     {
-        
+        MaxHealth = playerScript.playerHealth;
     }
 
-    // Update is called once per frame
-    void Update()
+    //Checks if player interacts with health pack.
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if (other.gameObject.GetComponent<PlayerScript>())
+        {
+            Destroy(gameObject);
+            
+            playerScript.playerHealth += xHealth;
+
+            playerScript.jumpStrength += xJump;
+        }
     }
+
+    
+
 }
