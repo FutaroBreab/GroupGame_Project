@@ -15,14 +15,20 @@ public class PlayerScript : MonoBehaviour
     //The jump strength variable
     public int jumpStrength = 10;
 
-    //The max playerhealth  
+    //The playerhealth  
     public int playerHealth = 99;
+
+    //Max playerhealth
+
+    public int maxHP = 99;
 
     //The players points
     public int points = 0;
 
     //Bullet direction variable dependencies 
     public int direction = 0;
+    
+
 
 
     private Vector3 respawnPoint;
@@ -48,12 +54,18 @@ public class PlayerScript : MonoBehaviour
     void Update()
     {
         jump();
+
+        //A constant check if the player health ever reaches zero to then
+        //switch to the end screen
+        if (playerHealth <= 0)
+        {
+            GetComponent<EndScreen>().SwitchScene(2);
+            //game over
+        }
     }
+
+
     //Should Set up the movement for left and right keys on the player
-
-
-
-
     private void Move()
     {
         if (Input.GetKey(KeyCode.A))
@@ -100,22 +112,6 @@ public class PlayerScript : MonoBehaviour
     }
     // Update is called once per frame
 
-    public void LoseLife()
-    {
-        playerHealth--;
-
-        if (playerHealth <= 0)
-        {
-            GetComponent<EndScreen>().SwitchScene(2);
-            //game over
-        }
-        else
-        {
-
-            //respawn
-            transform.position = respawnPoint;
-        }
-    }
 
 
 
@@ -124,14 +120,36 @@ public class PlayerScript : MonoBehaviour
     {
         if (other.gameObject.GetComponent<LightEnemyScript>())
         {
-            //call the script below
+            playerHealth -= 15;
+            transform.position = respawnPoint;
+            Blink();
+
         }
+
+        if (other.gameObject.GetComponent<HeavyEnemy>())
+        {
+            playerHealth -= 35;
+            transform.position = respawnPoint;
+            Blink();
+        }
+
     }
 
-    private void InvincibilityFrames()
+    public IEnumerator Blink()
     {
-           //visually make the player fade in and out of transparency or just visibility 
-           //while making it so that they dont take damage for the duration of this time 
+        for (int i = 0; i < 30; i++)
+        {
+            if (i % 2 == 0)
+            {
+                GetComponent<MeshRenderer>().enabled = false;
+            }
+            else
+            {
+                GetComponent<MeshRenderer>().enabled = true;
+            }
+            yield return new WaitForSeconds(.1f);
+        }
+        GetComponent<MeshRenderer>().enabled = false;
     }
     
 }

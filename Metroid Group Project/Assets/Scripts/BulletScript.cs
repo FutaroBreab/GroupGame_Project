@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BulletScript : MonoBehaviour
 {
+    public int bulletDamage = 1;
     public float speed = 19;
     public int direction = 0;
 
@@ -44,5 +45,19 @@ public class BulletScript : MonoBehaviour
         Destroy(gameObject);
 
         }
+
+        // takes away health from the heavy enemy though bullet detection
+
+        if (other.gameObject.GetComponent<HeavyEnemy>())
+        {
+            gameObject.GetComponent<HeavyEnemy>().health -= bulletDamage;
+        }
+
+        // takes away health from the light enemy though bullet detection
+        if (other.gameObject.GetComponent<LightEnemyScript>())
+        {
+            gameObject.GetComponent<LightEnemyScript>().health -= bulletDamage;
+        }
+
     }
 }
