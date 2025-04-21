@@ -31,7 +31,7 @@ public class PlayerScript : MonoBehaviour
 
 
 
-    private Vector3 respawnPoint;
+    public Vector3 respawnPoint;
 
     void Start()
     {
