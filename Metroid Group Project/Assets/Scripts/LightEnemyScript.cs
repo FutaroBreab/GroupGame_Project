@@ -33,6 +33,11 @@ public class LightEnemyScript : MonoBehaviour
         }
     }
     //this should subtract the bullet damage from the enemies health
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+    }
+
 
     private void EnemyMovement()
     {

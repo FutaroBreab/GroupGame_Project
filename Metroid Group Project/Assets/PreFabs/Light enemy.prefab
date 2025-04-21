@@ -133,7 +133,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -151,7 +151,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 367cb1b032e059b4598d27a960360012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  health: 1
+  speed: 6
   direction: {x: 0, y: 0, z: 0}
   leftPoint: {fileID: 8914199410336552739}
   rightPoint: {fileID: 6746320032021170316}

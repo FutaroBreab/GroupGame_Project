@@ -35,7 +35,7 @@ public class BulletScript : MonoBehaviour
 
 
     //BULLET COLLISIONS YEAAA COLLISIONS
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision other)
     {
 
         if (other.gameObject.GetComponent<Door>())
@@ -51,12 +51,16 @@ public class BulletScript : MonoBehaviour
         if (other.gameObject.GetComponent<HeavyEnemy>())
         {
             gameObject.GetComponent<HeavyEnemy>().health -= bulletDamage;
+            Destroy(gameObject);
+
         }
 
         // takes away health from the light enemy though bullet detection
         if (other.gameObject.GetComponent<LightEnemyScript>())
         {
             gameObject.GetComponent<LightEnemyScript>().health -= bulletDamage;
+            Destroy(gameObject);
+
         }
 
     }

@@ -32,7 +32,7 @@ public class PowerUpScript : MonoBehaviour
             if(MaxJumpPowerUp == true)
             {
                 //increases jump amount twice as much
-                playerScript.jumpStrength *= 2;
+                playerScript.jumpStrength += 4;
             }
             
 
