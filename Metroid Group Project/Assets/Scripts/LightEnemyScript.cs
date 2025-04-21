@@ -39,6 +39,16 @@ public class LightEnemyScript : MonoBehaviour
     }
 
 
+    private void OnCollisionEnter(Collision collision)
+    {
+
+        if (collision.gameObject.GetComponent<PlayerScript>())
+        {
+            collision.gameObject.GetComponent<PlayerScript>().TakeDamage(15);
+        }
+
+    }
+
     private void EnemyMovement()
     {
         transform.position += direction * speed * Time.deltaTime;

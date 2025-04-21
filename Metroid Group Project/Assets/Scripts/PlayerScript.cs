@@ -28,7 +28,8 @@ public class PlayerScript : MonoBehaviour
     //Bullet direction variable dependencies 
     public int direction = 0;
     
-
+    //Invuln check
+    public bool invuln = false;
 
 
     public Vector3 respawnPoint;
@@ -115,8 +116,17 @@ public class PlayerScript : MonoBehaviour
 
 
 
+    public void TakeDamage(int damage)
+    {
+        if (invuln == false) { 
+        playerHealth -= 15;
+        Blink();
+        }
+    }
 
-
+    /*
+     * 
+     * WOULD ONLY CHECK FOR IF THE PLAYER MOVES INTO THE ENEMY
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.GetComponent<LightEnemyScript>())
@@ -135,9 +145,12 @@ public class PlayerScript : MonoBehaviour
         }
 
     }
+    */
+
 
     public IEnumerator Blink()
     {
+        invuln = true;
         for (int i = 0; i < 30; i++)
         {
             if (i % 2 == 0)
@@ -151,6 +164,7 @@ public class PlayerScript : MonoBehaviour
             yield return new WaitForSeconds(.1f);
         }
         GetComponent<MeshRenderer>().enabled = false;
+        invuln = false;
     }
     
 }
