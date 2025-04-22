@@ -33,6 +33,22 @@ public class HeavyEnemy : MonoBehaviour
         }
     }
 
+    //this should subtract the bullet damage from the enemies health
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+    }
+
+    //player collision
+    private void OnCollisionEnter(Collision collision)
+    {
+
+        if (collision.gameObject.GetComponent<PlayerScript>())
+        {
+            collision.gameObject.GetComponent<PlayerScript>().TakeDamage(15);
+        }
+
+    }
 
     private void EnemyMovement()
     {

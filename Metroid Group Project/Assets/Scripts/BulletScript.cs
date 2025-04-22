@@ -50,7 +50,7 @@ public class BulletScript : MonoBehaviour
 
         if (other.gameObject.GetComponent<HeavyEnemy>())
         {
-            gameObject.GetComponent<HeavyEnemy>().health -= bulletDamage;
+            other.gameObject.GetComponent<HeavyEnemy>().TakeDamage(bulletDamage);
             Destroy(gameObject);
 
         }
@@ -58,7 +58,9 @@ public class BulletScript : MonoBehaviour
         // takes away health from the light enemy though bullet detection
         if (other.gameObject.GetComponent<LightEnemyScript>())
         {
-            gameObject.GetComponent<LightEnemyScript>().health -= bulletDamage;
+
+
+            other.gameObject.GetComponent<LightEnemyScript>().TakeDamage(bulletDamage);
             Destroy(gameObject);
 
         }

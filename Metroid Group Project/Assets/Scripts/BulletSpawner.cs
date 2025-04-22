@@ -34,8 +34,11 @@ public class BulletSpawner : MonoBehaviour
         //If X is held, shoot once, and then start to rapid fire after held
         if(Input.GetKeyDown(KeyCode.X))
         {
+            /*
             GameObject bulletspawn = Instantiate(bullet, transform.position, transform.rotation);
             bulletspawn.GetComponent<BulletScript>().direction = player.GetComponent<PlayerScript>().direction;
+            */
+            SpawnBullet();
             InvokeRepeating("SpawnBullet", 0.5f, 0.15f);
         }
         if(!Input.GetKey(KeyCode.X))
