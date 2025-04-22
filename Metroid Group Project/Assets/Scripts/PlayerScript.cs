@@ -30,6 +30,7 @@ public class PlayerScript : MonoBehaviour
     
     //Invuln check
     public bool invuln = false;
+    public float invulnTime = 0;
 
 
     public Vector3 respawnPoint;
@@ -37,7 +38,7 @@ public class PlayerScript : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        GetComponent<EndScreen>().SwitchScene(0);
+        //GetComponent<EndScreen>().SwitchScene(0);
         respawnPoint = transform.position;
         
     }
@@ -64,6 +65,32 @@ public class PlayerScript : MonoBehaviour
             GetComponent<EndScreen>().SwitchScene(2);
             //game over
         }
+
+
+
+
+
+        //invuln draw stuff
+
+        if (invulnTime > 0)
+        {
+            if (Mathf.Floor(invulnTime) % 2 == 0)
+            {
+                GetComponent<SpriteRenderer>().enabled = false;
+            }
+            else
+            {
+                GetComponent<SpriteRenderer>().enabled = true;
+            }
+
+            invulnTime -= 12 * Time.deltaTime;
+        }
+        else
+        {
+            GetComponent<SpriteRenderer>().enabled = true;
+            invulnTime = 0;
+        }
+
     }
 
 
@@ -118,9 +145,9 @@ public class PlayerScript : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        if (invuln == false) { 
+        if (invulnTime == 0 ) { 
         playerHealth -= 15;
-        Blink();
+            invulnTime = 40.5f;
         }
     }
 
@@ -148,6 +175,8 @@ public class PlayerScript : MonoBehaviour
     */
 
 
+
+    /* this is outdated now. smiles
     public IEnumerator Blink()
     {
         invuln = true;
@@ -165,6 +194,15 @@ public class PlayerScript : MonoBehaviour
         }
         GetComponent<MeshRenderer>().enabled = false;
         invuln = false;
+
+
+   
+
+
     }
     
+    */
+
+
+
 }

@@ -18,6 +18,7 @@ public class PowerUpScript : MonoBehaviour
     public bool MaxHealthPowerUp = false;
     public bool MaxJumpPowerUp = false;
     public bool HeavyBulletsPowerUp = false;
+    public bool HealthPack = false;
 
     private void Start()
     {
@@ -34,10 +35,18 @@ public class PowerUpScript : MonoBehaviour
                 //increases jump amount twice as much
                 playerScript.jumpStrength += 4;
             }
-            
+
+            if (HealthPack == true)
+            {
+                if (xHealth + playerScript.playerHealth > playerScript.maxHP)
+                {
+                    playerScript.playerHealth = playerScript.maxHP;
+                }
+                else playerScript.playerHealth += xHealth;
+            }
 
             //Check if max power up is checked. If not checked it should default to standard healthpack
-            if(MaxHealthPowerUp == true)
+            if (MaxHealthPowerUp == true)
             {
                 //increases max health and fully heals.
                 playerScript.playerHealth = MaxHealth + 100;

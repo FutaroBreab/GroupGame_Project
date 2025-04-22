@@ -39,9 +39,11 @@ public class BulletSpawner : MonoBehaviour
             bulletspawn.GetComponent<BulletScript>().direction = player.GetComponent<PlayerScript>().direction;
             */
             SpawnBullet();
-            InvokeRepeating("SpawnBullet", 0.5f, 0.15f);
+            //InvokeRepeating("SpawnBullet", 0.5f, 0.15f);
+            InvokeRepeating("SpawnBullet", 0.5f, 0.5f);
+
         }
-        if(!Input.GetKey(KeyCode.X))
+        if (!Input.GetKey(KeyCode.X))
         {
             CancelInvoke();
         }

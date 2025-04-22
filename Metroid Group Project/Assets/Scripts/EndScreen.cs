@@ -19,6 +19,7 @@ public class EndScreen : MonoBehaviour
     public void SwitchScene(int sceneIndex)
     {
         SceneManager.LoadScene(sceneIndex);
+
     }
 
 
