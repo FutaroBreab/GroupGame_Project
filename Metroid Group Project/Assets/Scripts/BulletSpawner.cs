@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Brandt, Hunter
+//4/21/2025
+//Bullet projectile SPAWNER script
 public class BulletSpawner : MonoBehaviour
 {
     //Set these bullet types to a bullet prefab

@@ -2,6 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+//UNUSED FILE
+//Brandt, Hunter
+//4/21/2025
+//Unused bat behavior
 public class BatBehavior : MonoBehaviour
 {
 
