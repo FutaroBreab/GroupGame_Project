@@ -15,11 +15,17 @@ public class BulletScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        //die in a moment
         InvokeRepeating("Death", 0.25f, 1);   
+        
+
+        //if facing left, go left
         if (direction == 0)
         {
             speed *= -1;
         }
+        
     }
 
     //This kills the crab
@@ -31,6 +37,7 @@ public class BulletScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //move
         transform.position += new Vector3(speed,0,0) * Time.deltaTime;
     }
 
@@ -41,6 +48,9 @@ public class BulletScript : MonoBehaviour
     //BULLET COLLISIONS YEAAA COLLISIONS
     private void OnCollisionEnter(Collision other)
     {
+
+
+        //for hitting the door to open is
 
         if (other.gameObject.GetComponent<Door>())
         {

@@ -58,7 +58,7 @@ public class BulletSpawner : MonoBehaviour
     {
 
 
-
+        //checks type
         if (bulletType == 0)
         {
             GameObject bulletspawn = Instantiate(bullet, transform.position, transform.rotation);

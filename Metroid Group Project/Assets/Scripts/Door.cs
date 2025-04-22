@@ -20,31 +20,31 @@ public class Door : MonoBehaviour
 
         if (hp <= 0)
         {
-           // Destroy(gameObject);
+            //makes the door invisible when passthrough
+           
             GetComponent<Renderer>().enabled = false;
             GetComponent<Collider>().enabled = false;
-            //GetComponent<Rigidbody>(). = false;
+            
             deathTimer = 2;
         }
 
         hitFlash = 0.1f;
 
-        //gameObject.GetComponent<Renderer>().material.color = new Color(0 + (3 - hp) * 50, 0 + (3 - hp) * 50, 200+(3-hp)*50);
-        //gameObject.GetComponent<Renderer>().material.SetColor("_Color", new Color(50, 50, 50, 1));
-        
+       
         
     }
 
     // Start is called before the first frame update
     void Start()
     {
-       // gameObject.GetComponent<Renderer>().material.color = new Color(50,50,50, 1);
 
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        //flash white
         if (hitFlash > 0)
         {
             gameObject.GetComponent<Renderer>().material.color = new Color(50, 50, 50, 1);
@@ -56,7 +56,7 @@ public class Door : MonoBehaviour
             gameObject.GetComponent<Renderer>().material.color = new Color(0, 0, 255, 1);
         }
 
-
+        //passthrough timer code
         if (deathTimer > 0)
         {
             deathTimer -= 1 * Time.deltaTime;
