@@ -1,6 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+/*
+ * Authors: Christian Gomez-Ruiz
+ * 4/16/2025
+ * Handles the interactions of the light enemies with their health and death
+*/
 
 public class LightEnemyScript : MonoBehaviour
 {

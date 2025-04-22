@@ -3,7 +3,11 @@ using System.Collections.Generic;
 using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+/*
+ * Authors: Christian Gomez-Ruiz, Hunter
+ * 4/21/2025
+ * Handles player movement, health, and interactions with spawning and respawning
+*/
 public class PlayerScript : MonoBehaviour
 {
     //Establish a rigidbody for the player model (This will hopefully contribute to fixing clipping issue
@@ -68,7 +72,7 @@ public class PlayerScript : MonoBehaviour
 
 
 
-
+        
 
         //invuln draw stuff
 
