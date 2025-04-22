@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+//Brandt, Hunter
+//4/21/2025
+//Bullet projectile script (normal & heavy)
 public class BulletScript : MonoBehaviour
 {
     public int bulletDamage = 1;

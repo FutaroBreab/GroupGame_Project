@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
+
+//Brandt, Hunter
+//4/21/2025
+//Bullet projectile script
+//Metroid Styled Door
 public class Door : MonoBehaviour
 {
     public int hp = 3;
